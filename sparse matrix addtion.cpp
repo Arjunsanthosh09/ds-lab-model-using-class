@@ -29,7 +29,7 @@ void SparseMatrix::insertMatrix() {
 }
 
 void SparseMatrix::sparseMatrixImp() {
-    k = 1; // Initialize k to 1
+    k = 1;
     for (int i = 0; i < row; i++) {
         for (int j = 0; j < col; j++) {
             if (a[i][j] != 0) {
@@ -42,10 +42,14 @@ void SparseMatrix::sparseMatrixImp() {
     }
     c[0][0] = row;
     c[0][1] = col;
-    c[0][2] = k - 1; // Adjust k to the correct count of non-zero elements
+    c[0][2] = k - 1; 
 }
 
 void SparseMatrix::display() {
+    cout <<c[0][0] <<"\t";
+    cout << c[0][1]<<"\t";
+    cout<<c[0][2]<<"\t"<<"\n";
+
     for (int i = 1; i <= c[0][2]; i++) {
         cout << c[i][0] << "\t" << c[i][1] << "\t" << c[i][2] << "\n";
     }
