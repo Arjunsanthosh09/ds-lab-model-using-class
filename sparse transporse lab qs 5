@@ -15,10 +15,7 @@ public:
     void display();
     void transpose();
 
-    SparseMatrix()
-    {
-        k = 1; // Initializing k to 1
-    }
+
 };
 
 void SparseMatrix::insertMatrix()
@@ -53,7 +50,7 @@ void SparseMatrix::sparseMatrixImp()
     }
     c[0][0] = row;
     c[0][1] = col;
-    c[0][2] = k - 1; // Adjust k to the correct count of non-zero elements
+    c[0][2] = k - 1; 
 }
 
 void SparseMatrix::display()
@@ -67,33 +64,28 @@ void SparseMatrix::display()
 
 void SparseMatrix::transpose()
 {
-    int temp = c[0][0];
-    c[0][0] = c[0][1];
-    c[0][1] = temp;
-
-    for (int i = 1; i <= c[0][2]; i++)
-    {
-        temp = c[i][0];
-        c[i][0] = c[i][1];
-        c[i][1] = temp;
-    }
+   for (int i = 0; i < c[0][2]; i++)
+   {
+       cout << "\n";
+       for (int j = 1; j <= c[0][2]; j++)
+       {
+           cout << c[j][i] << "\t";
+       }
+   }
 }
-
-int main()
+int  main()
 {
     SparseMatrix obj1;
-
-    cout << "\nEnter the number of rows and columns in the matrix: ";
+obj1.k=1;
+    
     obj1.insertMatrix();
     obj1.sparseMatrixImp();
 
-    cout << "\n\nOriginal Sparse Matrix:\n";
     obj1.display();
-
+cout<<"\n transpose of the matrix is :\n";
     obj1.transpose();
 
-    cout << "\n\nTranspose of Sparse Matrix:\n";
-    obj1.display();
+   
 
-    return 0;
 }
+
